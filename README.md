@@ -40,22 +40,21 @@ http://<ip_do_seu_ingress>/foo
 
 ## Objetivo
 Criar um chart helm para a aplicação kubernetes [foo-bar-app-example.yaml](foo-bar-app-example.yaml)
-Para isso é importante que você entenda como funciona o kubernetes, seus comandos básicos e seus principais recusros (pod, service, deployment, secrets, etc...) e do helm 
+Para isso é importante que você entenda como funciona o helm charts e o kubernetes, seus comandos básicos e seus principais recusros (pod, service, deployment, ingress)
 
 ## Requisitos minimos
 * Chart helm funcionando
-* O chart deve receber alguns argumentos para ser criado: 
+* O chart deve receber alguns argumentos via Values para ser criado: 
     * nome do app foo
     * nome do app bar
     * porta do app foo
     * porta do app bar
-    * imagem do app foo 
+    * imagem do app foo
     * imagem do app bar
 
 ## Elevando o nível do seu desafio (opicional):
-* Habilite o healthcheck (Dificuldade: :star:)
-* Crie template de Deployment para que a aplicação possa ser escalavél (Dificuldade: :star::star:)
-* Crie template de Secrets (Dificuldade: :star::star::star:)
-* Crie template de HorizontalPodAutoscaler (Dificuldade: :star::star::star:)
+* Customize o chart para receber via Values o path ingress do app foo e bar (Dificuldade: :star:)
+* Habilite o [healthcheck] (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) (Dificuldade: :star:)
+* Crie template de [Deployment] (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) para que a aplicação possa ser escalavél (Dificuldade: :star::star:)
+* Crie template de [HorizontalPodAutoscaler] (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (Dificuldade: :star::star::star:)
 * Crie tests para seu chart [DOC](https://helm.sh/docs/topics/chart_tests/) (Dificuldade: :star::star::star::star::star:)
-
