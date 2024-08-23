@@ -1,7 +1,7 @@
 # Desafio SRE
 
 ## Arquitetura da aplicação
-[![Arquitetura app foo bar](foo-bar-app-arch.png)](https://github.com/user-attachments/assets/e02f4ec1-8b04-4138-99b6-c5dba0c18296)
+![Arquitetura app foo bar](foo-bar-app-arch.png)
 
 ## Executando o exemplo
 Instalando o minikube
@@ -54,8 +54,8 @@ Para isso é importante que você entenda como funciona o kubernetes, seus coman
 
 ## Elevando o nível do seu desafio (opicional):
 * Habilite o healthcheck (Dificuldade: :star:)
-* Crie template de deployment para que a aplicação possa ser escalavél (Dificuldade: :star::star:)
-* Crie template de secrets (Dificuldade: :star::star::star:)
-* Crie template de HPA (Dificuldade: :star::star::star:)
+* Crie template de Deployment para que a aplicação possa ser escalavél (Dificuldade: :star::star:)
+* Crie template de Secrets (Dificuldade: :star::star::star:)
+* Crie template de HorizontalPodAutoscaler (Dificuldade: :star::star::star:)
 * Crie tests para seu chart [DOC](https://helm.sh/docs/topics/chart_tests/) (Dificuldade: :star::star::star::star::star:)
 
