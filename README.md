@@ -34,8 +34,10 @@ Pegue o ip do ingress para testar a aplicação, para isso basta executar:
 `kubectl get ingress`
 
 Abra seu navegar o testes as seguintes urls:
-http://<ip_do_seu_ingress>/bar
-http://<ip_do_seu_ingress>/foo
+
+`http://<ip_do_seu_ingress>/bar`
+
+`http://<ip_do_seu_ingress>/foo`
 
 
 ## Objetivo
