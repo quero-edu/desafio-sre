@@ -1,0 +1,69 @@
+fooDeploy:
+  name: foo-app-deployment
+  podName: foo-app
+  label: foo
+  containerName: foo-app
+  image: kicbase/echo-server:1.0
+  port: 8080
+  livenessProbePath: /
+  livenessProbeSeconds: 10
+  failureThreshould: 5
+  cpu: 5m
+  replicaCount: 1
+
+fooHpa:
+  name: foo-hpa
+  apiVersion: apps/v1
+  kind: Deployment
+  deployName: foo-app-deployment
+  minReplicasCount: 1
+  maxReplicasCount: 5
+  metricsType: Resource
+  resourceName: cpu
+  resourceTargetType: Utilization
+  averageUtilization: 50
+
+barDeploy:
+  name: bar-app-deployment
+  podName: bar-app
+  label: bar
+  containerName: bar-app
+  image: kicbase/echo-server:1.0
+  port: 8080
+  livenessProbePath: /
+  livenessProbeSeconds: 10
+  failureThreshould: 5
+  cpu: 5m
+  replicaCount: 1
+
+barHpa:
+  name: bar-hpa
+  apiVersion: apps/v1
+  kind: Deployment
+  deployName: bar-app-deployment
+  minReplicasCount: 1
+  maxReplicasCount: 5
+  metricsType: Resource
+  resourceName: cpu
+  resourceTargetType: Utilization
+  averageUtilization: 50
+
+service:
+  - name: foo-service
+    type: NodePort
+    label: foo
+    port: 8080
+    nodePort: 30000
+  - name: bar-service
+    type: NodePort
+    label: bar
+    port: 8080
+    nodePort: 30001
+
+ingress:
+  - path: /foo
+    serviceName: foo-service
+    port: 8080
+  - path: /bar
+    serviceName: bar-service
+    port: 8080
