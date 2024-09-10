@@ -1,0 +1,18 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Values.barHpa.name }}
+spec:
+  scaleTargetRef:
+    apiVersion: {{ .Values.barHpa.apiVersion }}
+    kind: {{ .Values.barHpa.kind }}
+    name: {{ .Values.barHpa.deployName }}
+  minReplicas: {{ .Values.barHpa.minReplicasCount }}
+  maxReplicas: {{ .Values.barHpa.maxReplicasCount }}
+  metrics:
+    - type: {{ .Values.barHpa.metricsType }}
+      resource:
+        name: {{ .Values.barHpa.resourceName }}
+        target:
+          type: {{ .Values.barHpa.resourceTargetType }}
+          averageUtilization: {{ .Values.barHpa.averageUtilization }}
