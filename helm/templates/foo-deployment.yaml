@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.fooDeploy.name }}
+spec:
+  template:
+    metadata:
+      name: {{ .Values.fooDeploy.podName }}
+      labels:
+        app: {{ .Values.fooDeploy.label }}
+    spec:
+      containers:
+        - name: {{ .Values.fooDeploy.containerName }}
+          image: {{ .Values.fooDeploy.image }}
+          ports:
+            - containerPort: {{ .Values.fooDeploy.port }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.fooDeploy.livenessProbePath }}
+              port: {{ .Values.fooDeploy.port }}
+            periodSeconds: {{ .Values.fooDeploy.livenessProbeSeconds }}
+            failureThreshould: {{ .Values.fooDeploy.failureThreshould }}
+          resources:
+            requests:
+              cpu: {{ .Values.fooDeploy.cpu }}
+  replicas: {{ .Values.fooDeploy.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.fooDeploy.label }}

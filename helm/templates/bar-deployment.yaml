@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.barDeploy.name }}
+spec:
+  template:
+    metadata:
+      name: {{ .Values.barDeploy.podName }}
+      labels:
+        app: {{ .Values.barDeploy.label }}
+    spec:
+      containers:
+        - name: {{ .Values.barDeploy.containerName }}
+          image: {{ .Values.barDeploy.image }}
+          ports:
+            - containerPort: {{ .Values.barDeploy.port }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.barDeploy.livenessProbePath }}
+              port: {{ .Values.barDeploy.port }}
+            periodSeconds: {{ .Values.barDeploy.livenessProbeSeconds }}
+            failureThreshould: {{ .Values.barDeploy.failureThreshould }}
+          resources:
+            requests:
+              cpu: {{ .Values.barDeploy.cpu }}
+  replicas: {{ .Values.barDeploy.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.barDeploy.label }}
