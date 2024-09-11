@@ -19,7 +19,7 @@ spec:
               path: {{ .Values.barDeploy.livenessProbePath }}
               port: {{ .Values.barDeploy.port }}
             periodSeconds: {{ .Values.barDeploy.livenessProbeSeconds }}
-            failureThreshould: {{ .Values.barDeploy.failureThreshould }}
+            failureThreshold: {{ .Values.barDeploy.failureThreshold }}
           resources:
             requests:
               cpu: {{ .Values.barDeploy.cpu }}

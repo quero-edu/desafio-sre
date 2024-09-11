@@ -7,7 +7,7 @@ fooDeploy:
   port: 8080
   livenessProbePath: /
   livenessProbeSeconds: 10
-  failureThreshould: 5
+  failureThreshold: 5
   cpu: 5m
   replicaCount: 1
 
@@ -32,7 +32,7 @@ barDeploy:
   port: 8080
   livenessProbePath: /
   livenessProbeSeconds: 10
-  failureThreshould: 5
+  failureThreshold: 5
   cpu: 5m
   replicaCount: 1
 
