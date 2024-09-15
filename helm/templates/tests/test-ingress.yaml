@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "foo-bar-app.fullname" . }}-test-ingress"
+  labels:
+    {{- include "foo-bar-app.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command:
+        - 'sh'
+        - '-c'
+        - |
+          wget -qO- --timeout=5 --tries=1 http://192.168.49.2:{{ (index .Values.service 0).nodePort }}/foo \
+          && wget -qO- --timeout=5 --tries=1 http://192.168.49.2:{{ (index .Values.service 1).nodePort }}/bar
+  restartPolicy: Never
