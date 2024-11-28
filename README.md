@@ -54,7 +54,7 @@ Para isso é importante que você entenda como funciona o helm charts e o kubern
     * imagem do app foo
     * imagem do app bar
 
-## Elevando o nível do seu desafio (opicional):
+## Elevando o nível do seu desafio (opcional):
 * Customize o chart para receber via Values o path ingress do app foo e bar (Dificuldade: :star:)
 * Habilite o [healthcheck] (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) (Dificuldade: :star:)
 * Crie template de [Deployment] (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) para que a aplicação possa ser escalavél (Dificuldade: :star::star:)
