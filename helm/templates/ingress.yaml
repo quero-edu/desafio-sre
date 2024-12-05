@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          {{- range $ingress := .Values.ingress }}
+          - pathType: Prefix
+            path: {{ $ingress.path }}
+            backend:
+              service:
+                name: {{ $ingress.serviceName }}
+                port:
+                  number: {{ $ingress.port }}
+          {{- end}}
