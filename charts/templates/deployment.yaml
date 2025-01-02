@@ -1,0 +1,22 @@
+{{- range .Values.apps }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .name }}
+spec:
+  replicas: {{ .replicaCount | default 1 }}
+  selector:
+    matchLabels:
+      app: {{ .labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .labels.app }}
+    spec:
+      containers:
+        {{- range .containers }}
+        - name: {{ .name }}
+          image: {{ .image }}
+        {{- end }}
+{{- end }}
