@@ -59,7 +59,7 @@ Para isso é importante que você entenda como funciona o helm charts e o kubern
 * Habilite o [healthcheck] (https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) (Dificuldade: :star:)
 * Crie template de [Deployment] (https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) para que a aplicação possa ser escalavél (Dificuldade: :star::star:)
 * Crie template de [HorizontalPodAutoscaler] (https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (Dificuldade: :star::star::star:)
-* Crie tests para seu chart [DOC](https://helm.sh/docs/topics/chart_tests/) (Dificuldade: :star::star::star::star::star:)
+* Crie tests para seu chart [DOC](https://helm.sh/docs/topics/chart_tests/) (Dificuldade: :star::star::star:)
 
 
 *Ao terminar o desafio abra um PR e adicione o time de SRE como reviewer*
