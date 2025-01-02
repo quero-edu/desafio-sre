@@ -1,0 +1,42 @@
+apps:
+  - name: app-worker1
+    labels:
+      app: foo
+    replicaCount: 2
+    containers:
+      - name: foo-app
+        image: 'kicbase/echo-server:1.0'
+
+  - name: app-worker2
+    labels:
+      app: bar
+    replicaCount: 1
+    containers:
+      - name: bar-app
+        image: 'kicbase/echo-server:1.0'
+
+services:
+  - name: service-worker1
+    selector:
+      app: foo
+    ports:
+      - port: 8080
+
+  - name: service-worker2
+    selector:
+      app: bar
+    ports:
+      - port: 8080
+
+ingress:
+  name: my-app
+  rules:
+    - host: example.local
+      path: /foo
+      serviceName: app-worker1-service
+      servicePort: 8080
+    - host: example.com
+      path: /bar
+      serviceName: app-worker2-service
+      servicePort: 8080
+

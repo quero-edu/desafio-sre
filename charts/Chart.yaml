@@ -1,0 +1,7 @@
+apiVersion: v1
+name: foo-bar-app
+description: A helm chart for worker applications with ingress
+version: 1.0.0
+
+appVersion: 1.0.0
+
